@@ -1,5 +1,5 @@
-# Scripts for preparement & processing of VASP inputs/outputs/
-_NEB_*.py are python3 (also working with python2) and ASE employing scripts for working with geometries for Nudget Elastic Band calculations in VASP._
+# Scripts for preparement & processing of VASP inputs/outputs 
+_NEB...py are python3 (also working with python2) and ASE employing scripts for working with geometries for Nudget Elastic Band calculations in VASP. NEB....sh are shell scripts for easier operation of NEB calculations, especially on supercomputers._
 
 Scripts has to be adjusted for different amount of NEB images; there are comments in the scripts for better understanding.
 
@@ -21,7 +21,7 @@ __NEB_prepare_another_opt.sh__ shell script for preparing files for another opti
 Don't forget to change _j_ after each run !
 
 ### example of preparation of inputs for NEB:
-
+_before running_ __NEB_make_linear.py__ _:_
 Input geometry is stored in __POSCAR-pre-in__ from previous calculations:
 > from ase.visualize import *; from ase import *; from ase.io import *; neco = read('POSCAR-pre-in'); view(neco); # to import libraries and see the input #
 
@@ -40,6 +40,6 @@ Input geometry is stored in __POSCAR-pre-in__ from previous calculations:
 
 > write('POSCAR-in',neco) # writing geometry in POSCAR-in#
 
-Similar procedure has to be done for POSCAR-out. Don't forget to visually check everything while running __NEB_contcar2poscar.py__.
+Similar procedure has to be done for POSCAR-out. Don't forget to visually check everything while running __NEB_make_linear.py__.
 
 ### Feel free to add description for older *.sh scripts.
