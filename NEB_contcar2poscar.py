@@ -4,11 +4,13 @@ from ase.io import *
 import numpy as np
 import os
 from shutil import copyfile
+from time import sleep
 
 # === options === #
 
 see = True # visualize images?#
 aimsGeom = True # save files also in 'geometry.in' files of FHI-AIMS? They are easy to visualize via JMOL .#
+delay = True # To delay visualization in between images so they would be organized in proper order? 
 
 num_im = 3 # Number of images # 
 save_dist = 4.5 # Save distance of atoms between images #
@@ -27,6 +29,8 @@ cell    = reactant.get_cell()
 
 if see:
 	view(reactant)
+if delay:
+	sleep(1)
 
 
 for i in range(num_im):
@@ -52,6 +56,8 @@ for i in range(num_im):
 	image.set_positions(pos)
 	if see:
 		view(image)
+	if delay:
+		sleep(1)
 	write('%02d/POSCAR' %(i+1),image)
 	print ("written: %02d/POSCAR" %(i+1))
 	if aimsGeom:

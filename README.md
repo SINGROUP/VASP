@@ -1,14 +1,24 @@
 # Scripts for preparement & processing of VASP inputs/outputs/
 _NEB_*.py are python3 (also working with python2) and ASE employing scripts for working with geometries for Nudget Elastic Band calculations in VASP._
 
+Scripts has to be adjusted for different amount of NEB images; there are comments in the scripts for better understandig.
+
 __NEB_contcar2poscar.py__ takes calculated CONTCAR from previous CALCULATIONS, checks whether some atoms didn't cross cell borders and adjust their position
-according to the positition of initial image (00/POSCAR)
+according to the positition of initial image (00/POSCAR). There is possibility to delay view for 1 second as in NEB_view_poscar.py
 
 __NEB_make_linear.py__ makes a linear path between POSCAR-in and POSCAR-out for wanted number of images. !!! It does not check for cell border crossing - you have to prepare POSCAR-in and POSCAR-out by yourself !!! 
 
 __NEB_prolonge_linear.py__ put images in between already calculated images to prolonge the NEB path, to be more precise. The new images are calculated as linear combination of neighbouring images.
 
 __NEB_view_poscar.py__ checking script to visualize currently prepared NEB path. There are 1 second delays between each visualization -- meaning that the visualized images should be ordered along the path.
+There is possibility to plot povray files for nice images plotting.
+
+__NEB_grep_energies_along_path.sh__ greps energies (without entropy) from OUTCARs into energy_tmp.txt. It automatically moves previous energy_tmp.txt -> energy_tmp-old.txt 
+
+__NEB_plot_povray.sh__ schell script for povray plotting all images prepared by NEB_view_poscar.py .
+
+__NEB_prepare_another_opt.sh__ shell script for preparing files for another optimization (not enouth steps for opt./ended due to time limit). It saves CONTCARs and OUTCARs and uses NEB_contcar2poscar.py .
+Don't forget to change _j_ after each run !
 
 ### example of preparation of inputs for NEB:
 
