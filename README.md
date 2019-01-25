@@ -1,7 +1,7 @@
 # Scripts for preparement & processing of VASP inputs/outputs/
 _NEB_*.py are python3 (also working with python2) and ASE employing scripts for working with geometries for Nudget Elastic Band calculations in VASP._
 
-Scripts has to be adjusted for different amount of NEB images; there are comments in the scripts for better understandig.
+Scripts has to be adjusted for different amount of NEB images; there are comments in the scripts for better understanding.
 
 __NEB_contcar2poscar.py__ takes calculated CONTCAR from previous CALCULATIONS, checks whether some atoms didn't cross cell borders and adjust their position
 according to the positition of initial image (00/POSCAR). There is possibility to delay view for 1 second as in NEB_view_poscar.py
